@@ -11,6 +11,7 @@
             padding: 0;
         }
 
+
         .container {
             display: flex;
             flex-direction: column;
@@ -20,45 +21,75 @@
         }
 
         .video-container {
-
+            display: flex;
             width: 100%;
 
             margin: 1% 0 auto auto;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
-
         }
 
         .inner-video-container {
-            width: 100%;
-            display: flex;
+
+
             flex-direction: column;
             align-items: center;
+            max-height: 90vh;
+            max-width: 90vw;
+            margin-left: 20vw;
+
 
         }
 
         .inner-video-container video {
-            width: 99%;
+
             border-radius: 10px;
+            max-height: 90vh;
+            max-width: 90vw;
         }
-        
+
+        .button1 {
+
+
+            background-color: #4CAF50; /* 绿色 */
+            border: none;
+
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+
+            margin-bottom: 10px;
+            width: 93.82%;
+
+            color: #fff;
+            max-width: 20vh;
+            max-height: 10vh;
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+
     </style>
 </head>
 <body>
 <div class="container">
     <div class="video-container">
         <div class="inner-video-container">
-            <video controls>
-                <source src=" {{video }}" type="video/mp4">
+            <video autoplay="autoplay" controls="controls" loop="loop">
+                <source src=" {{ video }}" type="video/mp4">
                 你的浏览器不支持播放该视频
             </video>
         </div>
+        <button class="button1">6666</button>
 
     </div>
 </div>
 <script>
-
 
 
 </script>
