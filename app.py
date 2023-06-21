@@ -32,7 +32,7 @@ def myfilelist():
 def plyer_page(file):
     filename = os.path.basename(file)
     print(filename)
-    return render_template("player6.html", file=file, filename=filename)
+    return render_template("player.html", file=file, filename=filename)
 
 
 @app.route('/manage/')
