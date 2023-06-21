@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>起始页</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            text-align: center;
+            color: #333;
+        }
+
+        .btn {
+
+            text-decoration: none;
+
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            width: 200px;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+
+        .sub_span {
+            font-size: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>欢迎来到我们的网站</h1>
+    <!--    建议无论是在后端还是前端写路由的时候都是双/前有/后也有/ 除非出现传参的现象 -->
+    <a class="btn" href="/list/">列表</a>
+    <a class="btn" href="/manage/">管理</a>
+    <a class="btn" href="/fun_tools/">插件<sub>🤣别人有的我也要有</sub></a>
+    <a class="btn" href="/link/">导航<sub>😍😍😍友情链接😍😍</sub></a>
+</div>
+</body>
+</html>

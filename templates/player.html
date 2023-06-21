@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>视频播放</title>
+    <style>
+        /* 页面样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            height: 100vh;
+
+        }
+
+        .video-container {
+
+            width: 100%;
+
+            margin: 1% 0 auto auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+
+        }
+
+        .inner-video-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .inner-video-container video {
+            width: 99%;
+            border-radius: 10px;
+        }
+
+        .video-info {
+            margin-top: 1.28px;
+            padding: 10px;
+        }
+
+        .video-info h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .video-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="video-container">
+        <div class="inner-video-container">
+            <video controls>
+                <source src="{{ url_for('static', filename='./movie/bluevideo/'+file) }}" type="video/mp4">
+                你的浏览器不支持播放该视频
+            </video>
+        </div>
+
+        <div class="video-info">
+            <h2>视频标题：</h2>
+            <h3>{{filename}}</h3>
+            <p>视频描述：无</p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
