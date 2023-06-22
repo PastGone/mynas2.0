@@ -23,7 +23,6 @@ def my_file_list():
     # os.walk(path) 是 Python 中的一个函数，用于遍历指定路径下的所有文件和文件夹。
     # 它返回一个生成器对象，每次迭代时，
     # 会返回一个三元组 (当前文件夹路径, 当前文件夹中的子文件夹列表, 当前文件夹中的文件列表)。
-
     for root, dirs, files in os.walk(folder_path):
         return render_template("list.html", files=files)
 
@@ -48,8 +47,6 @@ def fun():
 @app.route("/fun_tools/beauty/")
 def beauty():
     import json
-
-    datas = ""
     with open('yuan.json', 'r') as f:
         datas = json.load(f)
 
@@ -60,7 +57,7 @@ def beauty():
 
 @app.route("/link/")
 def beauty_api():
-    return  "当前页面未开发"
+    return "当前页面未开发"
 
 
 if __name__ == '__main__':
