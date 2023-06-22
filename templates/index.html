@@ -28,7 +28,6 @@
         }
 
         .btn {
-
             text-decoration: none;
 
             padding: 10px 20px;
@@ -47,16 +46,17 @@
         }
 
 
+
     </style>
 </head>
 <body>
 <div class="container">
     <h1>欢迎来到我们的网站</h1>
     <!--    建议无论是在后端还是前端写路由的时候都是双/前有/后也有/ 除非出现传参的现象 -->
-    <a class="btn" href="/list/">列表</a>
-    <a class="btn" href="/manage/">管理</a>
-    <a class="btn" href="/fun_tools/">插件<sub>🤣别人有的我也要有</sub></a>
-    <a class="btn" href="/link/">导航<sub>😍😍😍友情链接😍😍</sub></a>
+    <a class="btn" href="/list/" target="_blank">列表</a>
+    <a class="btn" href="/manage/" target="_blank">管理</a>
+    <a class="btn" href="/fun_tools/" target="_blank">插件<sub>🤣别人有的我也要有</sub></a>
+    <a class="btn" href="/link/" target="_blank">导航<sub>😍😍😍友情链接😍😍</sub></a>
 </div>
 <div id="QPlayer">
     <div id="pContent">
@@ -90,11 +90,10 @@
 <script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/jquery.marquee.min.js"></script>
 <script>
-    var playlist = [{
+    const playlist = [{
         title: "谪仙",
         artist: "叶里",
-        {#mp3: "http://music.163.com/song/media/outer/url?id=1421256202.mp3",#}
-        mp3: "http://downsc.chinaz.net/Files/DownLoad/sound1/201906/11582.mp3",
+        mp3: "https://webfs.ali.kugou.com/202306221104/0378acea07c3ba9d678cec25b0952074/part/0/960115/KGTX/CLTX001/clip_ed7d9a4dcc4a59395784c5697a082726.mp3",
         cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
     }, {
         title: "侧脸",
@@ -104,22 +103,22 @@
     }, {
         title: "无人之岛",
         artist: "任然",
-        mp3: "http://music.163.com/song/media/outer/url?id=493735012.mp3",
+        mp3: "https://wsaudiobssdlbig.yun.kugou.com/202306221143/2fc02d998abb3137a33247be1570fff2/bss/extname/wsaudio/8e51cde50d72b2f1040c5ad9bc1a9377.mp3",
         cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
     }, {
         title: "失眠飞行",
         artist: "蕾儿",
-        mp3: "http://music.163.com/song/media/outer/url?id=1386055610.mp3",
+        mp3: "http://m701.music.126.net/20230622121056/30f84f8c16e8eb86016e92558063e0b4/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096425767/b116/7927/951f/77913582bab1759d2b54530502e7a60b.mp3",
         cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
     }];
-    var isRotate = true;<!--图片旋转-->
-    var autoplay = true;<!--自动播放-->
+    let isRotate = true;<!--图片旋转-->
+    let autoplay = true;<!--自动播放-->
 </script>
 <script src="../static/js/player.js"></script>
 <script>
     function bgChange() {
-        var lis = $('.lib');
-        for (var i = 0; i < lis.length; i += 2)
+        let lis = $('.lib');
+        for (let i = 0; i < lis.length; i += 2)
             lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
     }
 

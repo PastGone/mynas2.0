@@ -23,9 +23,9 @@
 	box-sizing:border-box;
 }
 #player .cover {
-	border:0px solid #333;
+	border:0 solid #333;
 	position:absolute;
-	left:0px;
+	left:0;
 	overflow:hidden;
 	-moz-border-radius:50%;
 	-webkit-border-radius:50%;
@@ -53,7 +53,7 @@
 	margin-left:60px;
 	line-height:14px;
 	font-size:14px;
-	margin-top:0px;
+	margin-top:0;
 	color:#636363;
 	padding:8px;
 }
@@ -184,10 +184,10 @@
 #pContent .ssBtn {
 	width:20px;
 	height:60px;
-	background:#1abc9c none repeat scroll 0% 0%;
+	background:#1abc9c none repeat scroll 0 0;
 	position:relative;
-	right:0px;
-	bottom:0px;
+	right:0;
+	bottom:0;
 	box-sizing:border-box;
 	border-left:none;
 	cursor:pointer;
@@ -200,7 +200,7 @@
 	height:20px;
 	top:20px;
 	position:relative;
-	background:transparent url("../img/2.png") repeat scroll 0% 0%;
+	background:transparent url("../img/2.png") repeat scroll 0 0;
 }
 #pContent .ssBtn .adf.on {
 	transform:rotate(180deg);

@@ -19,7 +19,7 @@ def hello_world():
 
 
 @app.route('/list/')
-def myfilelist():
+def my_file_list():
     # os.walk(path) 是 Python 中的一个函数，用于遍历指定路径下的所有文件和文件夹。
     # 它返回一个生成器对象，每次迭代时，
     # 会返回一个三元组 (当前文件夹路径, 当前文件夹中的子文件夹列表, 当前文件夹中的文件列表)。
