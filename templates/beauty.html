@@ -49,7 +49,7 @@
             max-width: 90vw;
         }
 
-        .button1 {
+        .ctrl_button {
 
 
             background-color: #4CAF50; /* 绿色 */
@@ -74,24 +74,112 @@
             margin-right: 5vh;
         }
 
+
     </style>
 </head>
 <body>
 <div class="container">
     <div class="video-container">
         <div class="inner-video-container">
-            <video autoplay="autoplay" controls="controls" loop="loop">
+
+            <video id="player" muted autoplay="autoplay" controls="controls">
                 <source src=" {{ video }}" type="video/mp4">
                 你的浏览器不支持播放该视频
             </video>
-        </div>
-        <button class="button1">6666</button>
 
+        </div>
+        <div>
+            <button class="ctrl_button" id="button1">刷新</button>
+            <button class="ctrl_button" id="button2">循环</button>
+            <button class="ctrl_button" id="button3">声音</button>
+            <button class="ctrl_button" id="button4">播放</button>
+        </div>
     </div>
 </div>
+
 <script>
+    /**video.play()返回一个promise，未禁止则resolve，禁止则reject**/
+    let video = document.getElementById("player");
+    let videoPlay = video.play();
+
+    videoPlay.then(() => {
+        console.log('可以自动播放');
+    }).catch((err) => {
+        console.log(err);
+        console.log("不允许自动播放");
+
+        //视频元素可以选择静音后再播放,提示用户打开声音
+        video.muted = true;
+        video.play();
+
+        //也可以在用户交互后调用.play()
+        // ...
+    });
 
 
+</script>
+<script>
+    (function (window, document) {
+        const getById = function (id) {
+            return document.getElementById(id);
+        };
+
+        const bindEvent = function (element, event, callback) {
+            return element.addEventListener(event, callback);
+        };
+
+        const player = getById('player');
+
+
+        // 绑定视频播放结束事件
+        bindEvent(player, 'ended', function () {
+            location.reload();
+
+        });
+
+        // 绑定按钮点击事件
+        const nextButton = getById("button1");
+        bindEvent(nextButton, 'click', function (){
+            location.reload();
+        });
+
+        bindEvent(getById("button2"),'click',function (){
+            player.loop="loop";
+            alert("已设置为循环播放")
+        })
+        bindEvent(getById("button3"),'click',function (){
+            player.muted=false;
+            alert("声音已开启")
+        })
+
+        // 绑定视频加载错误事件
+        bindEvent(player, 'error', function () {
+            player.src = "https://media.w3.org/2010/05/sintel/trailer.mp4";
+            player.load(); // 重新加载视频
+            location.reload();
+        });
+
+
+
+    })(window, document);
+
+
+</script>
+<script>
+    {#   这段代码是一个JavaScript代码片段，它用于阻止网页中的右键菜单和特定键盘事件的默认行为。
+    第一行代码使用`addEventListener`函数来监听`contextmenu`事件，当右键菜单被触发时，会执行回调函数，
+    并通过`event.preventDefault()`来阻止默认的右键菜单弹出。
+    第二行代码使用`addEventListener`函数来监听`keydown`事件，当按键被按下时，会执行回调函数，
+    并通过条件判断来判断按下的键是否是F12键（键码为123）或者组合键Ctrl+Shift+I（键码为73）。
+    如果是这些键被按下，则通过`event.preventDefault()`来阻止默认行为，即禁用开发者工具的打开。
+    这段代码的作用是防止用户在网页中使用右键菜单或打开开发者工具，通常用于保护网页内容或防止用户进行非法操作。
+    需要注意的是，这种限制措施并不能完全阻止高级用户通过其他方式绕过限制。 #}
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('keydown', event => {
+        if (event.keyCode == 123 || (event.ctrlKey && event.shiftKey && event.keyCode == 73)) {
+            event.preventDefault();
+        }
+    });
 </script>
 </body>
 </html>
