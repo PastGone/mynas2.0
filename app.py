@@ -1,7 +1,7 @@
 import os
 import random
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # 导入该库用于发送邮件信息
 
@@ -11,8 +11,39 @@ app = Flask(__name__, static_folder="./static")
 # 要求的话必须放在该项目下 否则的话会报错
 
 folder_path = 'static/movie/bluevideo'
+# 设置上传文件保存的目录
+UPLOAD_FOLDER = 'uploads/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# 允许上传的文件类型
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', "mp4"}
 
 
+# 检查文件的扩展名是否符合要求
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+# 上传文件的处理函数
+@app.route('/upload/', methods=['POST'])
+def upload():
+    # 检查是否有文件被上传
+    if 'file' not in request.files:
+        return 'No file selected'
+
+    file = request.files['file']
+
+    # 检查文件是否符合要求
+    if file and allowed_file(file.filename):
+        # 保存文件到指定目录
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        return 'File uploaded successfully'
+    else:
+        return 'Invalid file type'
+
+
+# 网站首页
 @app.route('/')
 def hello_world():
     return render_template("index.html")
@@ -36,7 +67,8 @@ def plyer_page(file):
 
 @app.route('/manage/')
 def manage():
-    return "当前页面未开发"
+    return render_template("upload.html")
+    # return "当前页面未开发"
 
 
 @app.route("/fun_tools/")
