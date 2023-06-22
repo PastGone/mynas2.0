@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
     <title>起始页</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="../static/css/player.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,9 +46,7 @@
             background-color: #3e8e41;
         }
 
-        .sub_span {
-            font-size: 1px;
-        }
+
     </style>
 </head>
 <body>
@@ -59,5 +58,74 @@
     <a class="btn" href="/fun_tools/">插件<sub>🤣别人有的我也要有</sub></a>
     <a class="btn" href="/link/">导航<sub>😍😍😍友情链接😍😍</sub></a>
 </div>
+<div id="QPlayer">
+    <div id="pContent">
+        <div id="player">
+            <span class="cover"></span>
+            <div class="ctrl">
+                <div class="musicTag marquee">
+                    <strong>Title</strong>
+                    <span> - </span>
+                    <span class="artist">Artist</span>
+                </div>
+                <div class="progress">
+                    <div class="timer left">0:00</div>
+                    <div class="contr">
+                        <div class="rewind icon"></div>
+                        <div class="playback icon"></div>
+                        <div class="fastforward icon"></div>
+                    </div>
+                    <div class="right">
+                        <div class="liebiao icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ssBtn">
+            <div class="adf"></div>
+        </div>
+    </div>
+    <ol id="playlist"></ol>
+</div>
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/jquery.marquee.min.js"></script>
+<script>
+    var playlist = [{
+        title: "谪仙",
+        artist: "叶里",
+        {#mp3: "http://music.163.com/song/media/outer/url?id=1421256202.mp3",#}
+        mp3: "http://downsc.chinaz.net/Files/DownLoad/sound1/201906/11582.mp3",
+        cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
+    }, {
+        title: "侧脸",
+        artist: "于果",
+        mp3: "http://music.163.com/song/media/outer/url?id=534542079.mp3",
+        cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
+    }, {
+        title: "无人之岛",
+        artist: "任然",
+        mp3: "http://music.163.com/song/media/outer/url?id=493735012.mp3",
+        cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
+    }, {
+        title: "失眠飞行",
+        artist: "蕾儿",
+        mp3: "http://music.163.com/song/media/outer/url?id=1386055610.mp3",
+        cover: "https://s1.ax1x.com/2020/08/03/aN8ObD.png",
+    }];
+    var isRotate = true;<!--图片旋转-->
+    var autoplay = true;<!--自动播放-->
+</script>
+<script src="../static/js/player.js"></script>
+<script>
+    function bgChange() {
+        var lis = $('.lib');
+        for (var i = 0; i < lis.length; i += 2)
+            lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+    }
+
+    window.onload = bgChange;
+</script>
+
+
 </body>
 </html>
