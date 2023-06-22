@@ -9,20 +9,10 @@ app = Flask(__name__, static_folder="./static")
 
 # 这里的folder_path是要扫描的文件夹
 # 要求的话必须放在该项目下 否则的话会报错
-
 folder_path = 'static/movie/bluevideo'
-# 设置上传文件保存的目录
+# 设置上传文件保存的目录,如果不存在该目录的话记得新建否则会上传报错
 UPLOAD_FOLDER = 'uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# 允许上传的文件类型
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', "mp4"}
-
-
-# 检查文件的扩展名是否符合要求
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 # 上传文件的处理函数
@@ -34,13 +24,9 @@ def upload():
 
     file = request.files['file']
 
-    # 检查文件是否符合要求
-    if file and allowed_file(file.filename):
-        # 保存文件到指定目录
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-        return 'File uploaded successfully'
-    else:
-        return 'Invalid file type'
+    # 保存文件到指定目录
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+    return 'File uploaded successfully'
 
 
 # 网站首页
