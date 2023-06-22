@@ -77,7 +77,7 @@
 
     </style>
 </head>
-<body>
+<body id="only">
 <div class="container">
     <div class="video-container">
         <div class="inner-video-container">
@@ -86,6 +86,10 @@
                 <source src=" {{ video }}" type="video/mp4">
                 你的浏览器不支持播放该视频
             </video>
+            <iframe>
+                <iframe src="/ifarm/<video>" ></iframe>
+
+            </iframe>
 
         </div>
         <div>
@@ -151,6 +155,23 @@
             player.muted=false;
             alert("声音已开启")
         })
+        bindEvent(getById("only"),'click',function (){
+            player.muted=false;
+
+        })
+         bindEvent(getById("only"),'touchstart',function (){
+            player.muted=false;
+
+        })
+        bindEvent(getById("only"),'touchend',function (){
+            player.muted=false;
+
+        })
+        bindEvent(getById("only"),'touchmove',function (){
+            player.muted=false;
+
+        })
+
 
         // 绑定视频加载错误事件
         bindEvent(player, 'error', function () {
