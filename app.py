@@ -15,6 +15,14 @@ UPLOAD_FOLDER = 'uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+# 下面是获取局网IP的方法
+def getHostname():
+    import socket
+    hostname = socket.gethostname()
+    ip = socket.gethostbyname(hostname)
+    return ip
+
+
 # 上传文件的处理函数
 @app.route('/upload/', methods=['POST'])
 def upload():
@@ -59,7 +67,7 @@ def manage():
 
 @app.route("/fun_tools/")
 def fun():
-    return render_template("fun_tools.html")
+    return render_template("fun_tools.html",url=getHostname())
 
 
 @app.route("/fun_tools/beauty/")
