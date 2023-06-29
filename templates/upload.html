@@ -90,7 +90,7 @@
 
 </div>
 <script>
-(function (window, document) {
+    (function (window, document) {
         const getById = function (id) {
             return document.getElementById(id);
         };
@@ -100,11 +100,8 @@
         };
 
 
-
-
-
         bindEvent(getById("upload-btn"), 'onclick', function () {
-           alert("正在上传中");
+            alert("正在上传中");
         })
 
 

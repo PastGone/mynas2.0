@@ -67,7 +67,7 @@ def manage():
 
 @app.route("/fun_tools/")
 def fun():
-    return render_template("fun_tools.html",url=getHostname())
+    return render_template("fun_tools.html", url=getHostname())
 
 
 @app.route("/fun_tools/beauty/")
