@@ -75,8 +75,11 @@ def beauty():
     import json
     with open('yuan.json', 'r') as f:
         datas = json.load(f)
+    with open("mz.json",'r') as f2:
+        data1 =json.load(f2)
 
-        for data in datas:
+        for data2 in datas:
+            data=data1+data2
             random_video = random.choice(data)
             return render_template("beauty.html", video=random_video)
 
